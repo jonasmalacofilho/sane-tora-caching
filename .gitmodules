@@ -1,0 +1,3 @@
+[submodule "tora"]
+	path = tora
+	url = git@github.com:jonasmalacofilho/tora
