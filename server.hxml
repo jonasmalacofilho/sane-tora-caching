@@ -1,0 +1,4 @@
+-cp server
+-main Main
+-neko runtime/www/index.n
+-lib tora
