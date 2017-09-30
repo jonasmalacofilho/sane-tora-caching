@@ -1,4 +1,12 @@
 -cp server
 -main Main
 -neko runtime/www/index.n
+
+# besides -lib eweb, the managed cache requires -lib tora and (for now) -D experimental
+-lib eweb
 -lib tora
+-D experimental
+
+# settings for this example
+#-D client-traces
+#-D client-random-sleep

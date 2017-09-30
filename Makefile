@@ -21,7 +21,4 @@ restart-tora: stop-tora start-tora
 stop-all: phony
 	make stop-nginx ; make stop-tora
 
-test: phony
-	curl localhost:8080
-
 .PHONY: phony
