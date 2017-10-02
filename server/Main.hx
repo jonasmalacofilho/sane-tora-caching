@@ -1,4 +1,4 @@
-import eweb.Web;
+import eweb.ManagedModule;
 
 class Main {
 	static function finalize()
@@ -13,7 +13,7 @@ class Main {
 #if client_random_sleep
 		Sys.sleep(Math.random());
 #end
-		Sys.println('Hello, Lab! (${Web.fromManagedCache ? "module cached" : "FIRST RUN"})');
+		Sys.println('Hello, Lab! (${ManagedModule.runningFromCache ? "module cached" : "FIRST RUN"})');
 #if client_traces
 		trace("example: execute'd");
 #end
@@ -23,8 +23,8 @@ class Main {
 	{
 		var stderr = Sys.stderr();
 		haxe.Log.trace = function (msg:Dynamic, ?pos:haxe.PosInfos) stderr.writeString('$msg\n');
-		Web.traceCache = haxe.Log.trace;
-		Web.addModuleFinalizer(finalize);
-		Web.runAndCache(execute);
+		ManagedModule.log = haxe.Log.trace;
+		ManagedModule.addModuleFinalizer(finalize, "example");
+		ManagedModule.runAndCache(execute);
 	}
 }
